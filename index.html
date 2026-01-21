@@ -7,40 +7,81 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <style>
         :root {
+            --primary-red: #8B0000; 
+            --navy-blue: #0A192F;  
+            --bg-cream: #FDF5E6;   
             --whatsapp-green: #25d366;
-            --dark-bg: #121212;
-            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            --insta-pink: #E1306C;
+            --text-dark: #1a1a1a;
         }
 
         body { 
-            font-family: 'Inter', -apple-system, sans-serif; 
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
             margin: 0; 
-            background-color: #f0f2f5; 
-            color: #1c1e21; 
+            background-color: var(--bg-cream); 
+            color: var(--text-dark); 
         }
 
         header { 
             background: #ffffff; 
-            padding: 20px; 
-            text-align: center; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px 20px; 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        header h1 { margin: 0; font-size: 22px; letter-spacing: 1px; color: #000; }
+        .header-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        header img {
+            height: 45px;
+            width: auto;
+        }
+
+        header h1 { 
+            margin: 0; 
+            font-size: 18px; 
+            text-transform: uppercase;
+            letter-spacing: 1.5px; 
+            color: var(--navy-blue); 
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(253, 245, 230, 0.9), rgba(253, 245, 230, 0.8)), 
+                        url('https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 3px solid var(--primary-red);
+        }
+
+        .hero h2 { 
+            color: #2d5a27; 
+            font-style: italic; 
+            font-family: 'Georgia', serif; 
+            font-size: 28px;
+            margin: 0 0 10px 0;
+        }
+
+        .hero p { font-weight: 600; color: var(--navy-blue); margin: 0; }
 
         .container { 
             max-width: 1200px; 
-            margin: 30px auto; 
+            margin: 40px auto; 
             padding: 0 15px; 
         }
 
-        /* Mfumo wa box unaobadilika urefu (Masonry style) */
         #duka { 
             column-count: 2;
-            column-gap: 15px;
+            column-gap: 20px;
         }
 
         @media (min-width: 768px) { #duka { column-count: 3; } }
@@ -49,86 +90,89 @@
         .kadi { 
             background: white; 
             border-radius: 12px; 
-            margin-bottom: 15px; /* Nafasi kati ya kadi za juu na chini */
-            break-inside: avoid; /* Inazuia kadi isikatike katikati */
-            box-shadow: var(--card-shadow);
+            margin-bottom: 20px; 
+            break-inside: avoid; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: transform 0.2s;
+            border: 1px solid #eee;
+            transition: 0.3s ease;
         }
 
-        .kadi:hover { transform: scale(1.02); }
+        .kadi:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
 
-        /* Picha inakaa juu kabisa bila maandishi yoyote juu yake */
-        .kadi img { 
-            width: 100%; 
-            display: block; 
-            height: auto; /* Inafuata urefu halisi wa picha */
-            background: #eee;
-        }
+        .kadi img { width: 100%; display: block; height: auto; }
 
-        .kadi-info { 
-            padding: 15px; 
-            text-align: left; 
-        }
+        .kadi-info { padding: 18px; text-align: left; }
 
-        .kadi-info h3 { margin: 0 0 8px 0; font-size: 18px; color: #1c1e21; }
+        .kadi-info h3 { margin: 0 0 8px 0; font-size: 16px; color: var(--navy-blue); }
         
         .bei { 
-            color: #e67e22; 
-            font-weight: bold; 
-            font-size: 19px; 
-            margin-bottom: 8px;
+            color: var(--primary-red); 
+            font-weight: 800; 
+            font-size: 18px; 
+            margin-bottom: 12px;
             display: block;
-        }
-
-        .maelezo { 
-            color: #65676b; 
-            font-size: 13px; 
-            line-height: 1.4;
-            margin-bottom: 15px;
         }
 
         .btn-nunua { 
-            background: var(--whatsapp-green); 
+            background: var(--navy-blue); 
             color: white; 
             text-align: center; 
-            padding: 10px; 
+            padding: 12px; 
             text-decoration: none; 
             font-weight: bold; 
-            border-radius: 8px; 
+            border-radius: 6px; 
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             transition: 0.3s;
         }
 
-        .btn-nunua:hover { background: #128c7e; }
+        .btn-nunua:hover { background: var(--whatsapp-green); }
 
         footer { 
-            background: #ffffff; 
-            padding: 40px 20px; 
+            background: #111; 
+            padding: 50px 20px; 
             text-align: center; 
-            border-top: 1px solid #ddd;
-            margin-top: 50px;
+            color: #ddd;
+            margin-top: 60px;
         }
 
-        .footer-link { 
-            color: var(--whatsapp-green); 
-            text-decoration: none; 
-            font-weight: 600;
-            display: block;
-            margin: 10px 0;
+        .social-links { margin: 20px 0; }
+
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
         }
 
-        .loading { text-align: center; padding: 50px; color: #888; }
+        .wa-btn { background: var(--whatsapp-green); }
+        .ig-btn { background: var(--insta-pink); }
+
+        .loading { text-align: center; padding: 100px; color: #999; font-style: italic; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>DEUSB ENTERTAINMENT STORE</h1>
+        <div class="header-brand">
+            <img src="https://i.ibb.co/0pqXQJQw/deusb-icon.png" alt="Deusb Logo">
+            <h1>DEUSB ENTERTAINMENT</h1>
+        </div>
+        <a href="https://wa.me/255748666409" style="color: var(--whatsapp-green); font-weight: bold; text-decoration: none; font-size: 14px;">WhatsApp Us</a>
     </header>
+
+    <section class="hero">
+        <h2>The Standard of Story</h2>
+        <p>Ninachofanya: Graphics, Motion, Video & Social Media</p>
+    </section>
 
     <div class="container">
         <div id="duka">
@@ -137,11 +181,15 @@
     </div>
 
     <footer>
-        <h3>Wasiliana Nasi</h3>
-        <p>Tunapokea oda na kutoa huduma saa 24.</p>
-        <a href="https://wa.me/255748666409" class="footer-link">WhatsApp: +255 748 666 409</a>
-        <a href="mailto:deusbentertainment@gmail.com" class="footer-link" style="color:#444;">Email: deusbentertainment@gmail.com</a>
-        <p style="font-size: 12px; color: #999; margin-top: 20px;">&copy; 2026 DEUSB STORE.</p>
+        <img src="https://i.ibb.co/0pqXQJQw/deusb-icon.png" alt="Logo" style="height: 60px; margin-bottom: 15px;">
+        <h3>BORESHA BIASHARA LEO</h3>
+        
+        <div class="social-links">
+            <a href="https://wa.me/255748666409" class="social-btn wa-btn">WhatsApp Support</a>
+            <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="social-btn ig-btn">Instagram</a>
+        </div>
+
+        <p style="font-size: 13px; color: #777;">&copy; 2026 DEUSB ENTERTAINMENT STORE.</p>
     </footer>
 
     <script>
@@ -158,7 +206,6 @@
                     
                     data.forEach(bidhaa => {
                         if(bidhaa.Jina && bidhaa.Bei) {
-                            // Link ya picha (Direct link)
                             const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) 
                                 ? bidhaa.PichaURL 
                                 : 'https://via.placeholder.com/400x500?text=Picha+Inapakia';
@@ -169,9 +216,8 @@
                                     <div class="kadi-info">
                                         <h3>${bidhaa.Jina}</h3>
                                         <span class="bei">TSH ${bidhaa.Bei}</span>
-                                        <p class="maelezo">${bidhaa.Maelezo || ''}</p>
-                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari, nahitaji bidhaa hii: ${bidhaa.Jina} kwa TSH ${bidhaa.Bei}">
-                                            Nunua kwa WhatsApp
+                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari Deusb, nahitaji: ${bidhaa.Jina}">
+                                            NUNUA SASA
                                         </a>
                                     </div>
                                 </div>
