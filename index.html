@@ -62,7 +62,7 @@
             text-align: center;
             display: flex;
             flex-direction: column;
-            padding-bottom: 20px; /* Nafasi chini ya kitufe */
+            padding-bottom: 20px;
         }
 
         .kadi:hover { transform: translateY(-5px); }
@@ -83,29 +83,33 @@
 
         .maelezo { color: #666; font-size: 13px; line-height: 1.4; margin-bottom: 15px; }
 
-        /* KITUFE KIDOGO KILICHOREKEBISHWA */
+        /* REKEBISHO LA KITUFE CHA NUNUA */
         .btn-nunua { 
-            display: inline-flex; /* Hii inazuia kuchukua upana wote */
+            display: inline-flex; 
             align-items: center;
-            gap: 6px;
+            gap: 8px;
             background: var(--whatsapp-green); 
             color: white; 
-            padding: 6px 14px; /* Imeratibiwa kuwa ndogo zaidi */
+            padding: 8px 16px; /* Padding inayolingana na za chini */
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 13px; /* Maandishi madogo zaidi */
+            font-size: 13px;
             border-radius: 50px;
             transition: 0.3s;
-            margin: 0 auto; /* Inakaa katikati */
+            margin: 0 auto;
+        }
+
+        /* Hapa ndipo tunazuia icon isiwe kubwa */
+        .btn-icon-small {
+            width: 18px !important; 
+            height: 18px !important;
+            object-fit: contain;
+            margin: 0 !important; /* Inazuia margins za picha nyingine */
         }
 
         .btn-nunua:hover { background: #128c7e; transform: scale(1.05); }
 
-        .btn-icon-small {
-            width: 16px;
-            height: 16px;
-        }
-
+        /* FOOTER DESIGN */
         footer { 
             background: #1a1a1a; 
             padding: 50px 20px; 
