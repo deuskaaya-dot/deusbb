@@ -32,7 +32,6 @@
             width: 80px; 
             height: auto;
             margin-bottom: 10px;
-            transition: width 0.3s ease;
         }
 
         @media (min-width: 768px) {
@@ -60,63 +59,53 @@
             box-shadow: var(--card-shadow);
             overflow: hidden;
             transition: 0.3s;
-            height: fit-content;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Inaweka kila kitu katikati */
+            padding-bottom: 20px; /* Nafasi chini ya kitufe */
         }
 
         .kadi:hover { transform: translateY(-5px); }
 
-        .kadi img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-        }
+        .kadi img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
 
-        .kadi-info { 
-            padding: 20px; 
-            text-align: center; 
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Inahakikisha maandishi na kitufe vipo katikati */
-        }
+        .kadi-info { padding: 0 20px; }
 
-        .kadi-info h3 { margin: 0 0 10px 0; font-size: 19px; color: #333; }
+        .kadi-info h3 { margin: 0 0 8px 0; font-size: 18px; color: #333; }
         
         .bei { 
             color: #e67e22; 
             font-weight: bold; 
-            font-size: 21px; 
+            font-size: 20px; 
             margin-bottom: 8px;
             display: block;
         }
 
-        .maelezo { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
+        .maelezo { color: #666; font-size: 13px; line-height: 1.4; margin-bottom: 15px; }
 
-        /* KITUFE KIDOGO CHA KUNUNUA (Kama Social Media Buttons) */
+        /* KITUFE KIDOGO KILICHOREKEBISHWA */
         .btn-nunua { 
-            display: inline-flex;
+            display: inline-flex; /* Hii inazuia kuchukua upana wote */
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             background: var(--whatsapp-green); 
             color: white; 
-            padding: 8px 16px; 
+            padding: 6px 14px; /* Imeratibiwa kuwa ndogo zaidi */
             text-decoration: none; 
             font-weight: bold; 
-            font-size: 14px;
-            border-radius: 50px; /* Inakifanya kiwe cha mviringo */
+            font-size: 13px; /* Maandishi madogo zaidi */
+            border-radius: 50px;
             transition: 0.3s;
+            margin: 0 auto; /* Inakaa katikati */
         }
 
         .btn-nunua:hover { background: #128c7e; transform: scale(1.05); }
 
         .btn-icon-small {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
         }
 
-        /* FOOTER */
         footer { 
             background: #1a1a1a; 
             padding: 50px 20px; 
@@ -138,19 +127,18 @@
             align-items: center;
             gap: 8px;
             background: #2a2a2a;
-            padding: 10px 15px;
+            padding: 8px 14px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
             font-weight: bold;
-            font-size: 14px;
+            font-size: 13px;
             transition: 0.3s;
             border: 1px solid #444;
         }
 
         .social-btn:hover { background: #444; }
-
-        .social-icon { width: 20px; height: 20px; object-fit: contain; }
+        .social-icon { width: 18px; height: 18px; object-fit: contain; }
 
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
     </style>
