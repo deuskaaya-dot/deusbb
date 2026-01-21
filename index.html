@@ -3,63 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duka Langu la Kisasa</title>
+    <title>DEUSB ENTERTAINMENT STORE</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <style>
         :root {
             --primary-color: #25d366; /* Rangi ya WhatsApp */
-            --dark-color: #333;
-            --light-bg: #f4f4f4;
+            --dark-color: #1a1a1a;
+            --light-bg: #f8f9fa;
+            --accent-color: #e67e22;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background: var(--light-bg); }
-        
-        /* Sehemu ya Juu (Header) */
-        header { background: white; padding: 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); sticky: top; }
-        header h1 { margin: 0; color: var(--dark-color); font-size: 24px; }
 
-        /* Grid ya Bidhaa */
-        .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0; 
+            background-color: var(--light-bg); 
+            color: #333; 
+        }
+        
+        /* Sehemu ya Juu */
+        header { 
+            background: white; 
+            padding: 25px 20px; 
+            text-align: center; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+        }
+        header h1 { 
+            margin: 0; 
+            color: var(--dark-color); 
+            font-size: 24px; 
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        /* Sehemu ya Bidhaa */
+        .container { 
+            max-width: 1200px; 
+            margin: 40px auto; 
+            padding: 0 20px; 
+        }
+        
         #duka { 
             display: grid; 
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); 
+            gap: 25px; 
         }
 
         /* Kadi ya Bidhaa */
         .kadi { 
-            background: white; border-radius: 12px; overflow: hidden; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: 0.3s;
-            display: flex; flex-direction: column;
+            background: white; 
+            border-radius: 15px; 
+            overflow: hidden; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex; 
+            flex-direction: column; 
+            border: 1px solid #eee;
         }
-        .kadi:hover { transform: translateY(-5px); }
-        .kadi img { width: 100%; height: 200px; object-fit: cover; }
-        .kadi-info { padding: 15px; flex-grow: 1; }
-        .kadi-info h3 { margin: 0 0 10px 0; font-size: 18px; }
-        .bei { color: #e67e22; font-weight: bold; font-size: 20px; margin-bottom: 10px; }
-        .maelezo { color: #666; font-size: 14px; margin-bottom: 15px; }
-
-        /* Vitufe */
-        .btn-nunua { 
-            background: var(--primary-color); color: white; text-align: center; 
-            padding: 12px; text-decoration: none; font-weight: bold; 
-            display: block; border-radius: 6px; transition: 0.3s;
+        .kadi:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15); 
         }
-        .btn-nunua:hover { background: #128c7e; }
-
-        /* Footer (Mawasiliano) */
-        footer { background: var(--dark-color); color: white; padding: 40px 20px; text-align: center; margin-top: 50px; }
-        .footer-content { max-width: 600px; margin: auto; }
-        .footer-links { margin-top: 20px; }
-        .footer-links a { color: #25d366; text-decoration: none; margin: 0 15px; font-weight: bold; }
         
-        /* Loading animation */
-        .loading { text-align: center; padding: 50px; font-size: 18px; color: #666; }
+        .kadi img { 
+            width: 100%; 
+            height: 250px; 
+            object-fit: cover; 
+            background: #f0f0f0;
+        }
+        
+        .kadi-info { 
+            padding: 20px; 
+            flex-grow: 1; 
+            display: flex; 
+            flex-direction: column; 
+            text-align: center; 
+        }
+        .kadi-info h3 { 
+            margin: 0 0 10px 0; 
+            font-size: 20px; 
+            color: var(--dark-color); 
+        }
+        .bei { 
+            color: var(--accent-color); 
+            font-weight: bold; 
+            font-size: 22px; 
+            margin-bottom: 12px; 
+        }
+        .maelezo { 
+            color: #777; 
+            font-size: 14px; 
+            margin-bottom: 20px; 
+            line-height: 1.6;
+        }
+
+        /* Kitufe cha WhatsApp */
+        .btn-nunua { 
+            background: var(--primary-color); 
+            color: white; 
+            text-align: center; 
+            padding: 14px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            transition: 0.3s; 
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .btn-nunua:hover { 
+            background: #128c7e; 
+        }
+
+        /* Footer ya Mawasiliano */
+        footer { 
+            background: var(--dark-color); 
+            color: white; 
+            padding: 60px 20px; 
+            text-align: center; 
+            margin-top: 80px; 
+        }
+        .footer-content { max-width: 600px; margin: auto; }
+        .footer-links { margin-top: 25px; }
+        .footer-links a { 
+            color: var(--primary-color); 
+            text-decoration: none; 
+            font-weight: bold; 
+            display: inline-block; 
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        
+        .loading { 
+            text-align: center; 
+            padding: 100px; 
+            font-size: 18px; 
+            color: #999; 
+            width: 100%;
+        }
+
+        /* Responsive kwa simu */
+        @media (max-width: 600px) {
+            header h1 { font-size: 18px; }
+            #duka { grid-template-columns: 1fr; }
+        }
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 <body>
 
     <header>
-        <h1> DEUSB ENTERTAINMENT STORE</h1>
+        <h1>DEUSB ENTERTAINMENT STORE</h1>
     </header>
 
     <div class="container">
@@ -70,18 +167,22 @@
 
     <footer>
         <div class="footer-content">
-            <h3>Wasiliana Nasi</h3>
-            <p>TUPO KILA WAKATI KUKUUDUMIA.</p>
+            <h3 style="font-size: 24px;">Wasiliana Nasi</h3>
+            <p style="color: #bbb;">Tunapatikana kila wakati kukuhudumia kwa bidhaa bora na za uhakika.</p>
             <div class="footer-links">
-                <a href="https://wa.me/255748666409">WhatsApp: +255 748 666 409</a> <br><br>
-                <a href="mailto:info@dukalangu.com">Email: deusbentertainment@gmail.com</a>
+                <a href="https://wa.me/255748666409">
+                    🟢 WhatsApp: +255 748 666 409
+                </a> <br>
+                <a href="mailto:deusbentertainment@gmail.com">
+                    ✉️ Email: deusbentertainment@gmail.com
+                </a>
             </div>
-            <p style="font-size: 12px; margin-top: 20px; color: #888;">&copy; 2024 Duka Langu. Limejengwa kwa Upendo.</p>
+            <p style="font-size: 12px; margin-top: 40px; color: #555;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
         </div>
     </footer>
 
     <script>
-        // 1. WEKA LINK YAKO YA CSV HAPA CHINI
+        // Link yako ya Google Sheet (CSV)
         const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTjyYpymtplOkf4FK5Fwcfs9PnDMpldjLKiTftg4Sv518seWW188xS1v9aeJIQsbQbFS7HgiFb7SdV_/pub?gid=2113416306&single=true&output=csv';
 
         function loadProducts() {
@@ -93,32 +194,45 @@
                     const dukaDiv = document.getElementById('duka');
                     let html = '';
                     
-                   data.forEach(bidhaa => {
-    if(bidhaa.Jina && bidhaa.Bei) {
-        html += `
-            <div class="kadi">
-                <img src="${bidhaa.PichaURL}" alt="${bidhaa.Jina}">
-                <div class="kadi-info">
-                    <h3>${bidhaa.Jina}</h3>
-                    <p class="bei">TSH ${bidhaa.Bei}</p>
-                    <p class="maelezo">${bidhaa.Maelezo || ''}</p>
-                    <a class="btn-nunua" href="https://wa.me/+255 748666409?text=Habari, nahitaji ${bidhaa.Jina}">
-                        Nunua kwa WhatsApp
-                    </a>
-                </div>
-            </div>
-        `;
-    }
-});
-                    dukaDiv.innerHTML = html;
+                    data.forEach(bidhaa => {
+                        // Hakikisha Jina na Bei vipo kabla ya kuonyesha bidhaa
+                        if(bidhaa.Jina && bidhaa.Bei) {
+                            
+                            // Kama link ya picha haipo au siyo sahihi, tumia picha ya kusubiri (Placeholder)
+                            const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) 
+                                ? bidhaa.PichaURL 
+                                : 'https://via.placeholder.com/300x250?text=Picha+Inakuja';
+                            
+                            html += `
+                                <div class="kadi">
+                                    <img src="${pichaSahihi}" alt="${bidhaa.Jina}">
+                                    <div class="kadi-info">
+                                        <h3>${bidhaa.Jina}</h3>
+                                        <p class="bei">TSH ${bidhaa.Bei}</p>
+                                        <p class="maelezo">${bidhaa.Maelezo || 'Bidhaa bora kwa ajili yako.'}</p>
+                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari DEUSB STORE, nahitaji bidhaa hii: ${bidhaa.Jina} (Bei: TSH ${bidhaa.Bei})">
+                                            Nunua kwa WhatsApp
+                                        </a>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    });
+                    
+                    // Kama Sheet ikiwa tupu
+                    if (html === '') {
+                        dukaDiv.innerHTML = '<p class="loading">Bado hatuna bidhaa stoo. Karibu baadaye!</p>';
+                    } else {
+                        dukaDiv.innerHTML = html;
+                    }
                 },
                 error: function() {
-                    document.getElementById('duka').innerHTML = "Imeshindikana kupakia bidhaa. Angalia link ya Sheet yako.";
+                    document.getElementById('duka').innerHTML = '<p class="loading" style="color:red;">Hitilafu: Imeshindikana kuunganisha na stoo.</p>';
                 }
             });
         }
 
-        // Pakia bidhaa punde tu ukurasa unapofunguka
+        // Anza kupakia bidhaa mara tu ukurasa unapofunguka
         window.onload = loadProducts;
     </script>
 </body>
