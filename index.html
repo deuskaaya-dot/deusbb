@@ -28,16 +28,25 @@
             z-index: 1000;
         }
 
-        /* LOGO MPYA TRANSPARENT */
         .logo {
             width: 80px; 
             height: auto;
             margin-bottom: 10px;
         }
 
+        /* Hapa tunatengeneza muonekano wa logo kubadilika */
+        .logo-light { display: inline-block; }
+        .logo-dark { display: none; }
+
         @media (min-width: 768px) {
-            .logo { width: 180px; margin-bottom: 15px; }
+            .logo { width: 180px; }
             header h1 { font-size: 32px; }
+        }
+
+        /* DARK MODE DETECTION */
+        @media (prefers-color-scheme: dark) {
+            .logo-light { display: none; }
+            .logo-dark { display: inline-block; }
         }
 
         header h1 { margin: 0; font-size: 24px; color: #000; text-transform: uppercase; }
@@ -67,11 +76,8 @@
         }
 
         .kadi:hover { transform: translateY(-5px); }
-
         .kadi img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
-
         .kadi-info { padding: 0 20px; }
-
         .kadi-info h3 { margin: 0 0 8px 0; font-size: 18px; color: #333; }
         
         .bei { 
@@ -84,7 +90,6 @@
 
         .maelezo { color: #666; font-size: 13px; line-height: 1.4; margin-bottom: 15px; }
 
-        /* KITUFE KIDOGO CHA NUNUA */
         .btn-nunua { 
             display: inline-flex; 
             align-items: center;
@@ -104,12 +109,10 @@
             width: 18px !important; 
             height: 18px !important;
             object-fit: contain;
-            margin: 0 !important;
         }
 
         .btn-nunua:hover { background: #128c7e; transform: scale(1.05); }
 
-        /* FOOTER */
         footer { 
             background: #1a1a1a; 
             padding: 50px 20px; 
@@ -141,49 +144,36 @@
             border: 1px solid #444;
         }
 
-        .social-btn:hover { background: #444; }
         .social-icon { width: 18px; height: 18px; object-fit: contain; }
-
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
     </style>
 </head>
 <body>
 
     <header>
-        <img src="https://i.ibb.co/rRZvchrH/transparent-logo.png" alt="DEUSB Logo" class="logo">
+        <img src="https://i.ibb.co/rRZvchrH/transparent-logo.png" alt="DEUSB Logo" class="logo logo-light">
+        
+        <img src="https://i.ibb.co/v4rqWHrN/transparent-logo-for-black-theme-people.png" alt="DEUSB Logo" class="logo logo-dark">
+        
         <h1>DEUSB ENTERTAINMENT STORE</h1>
     </header>
 
     <div class="container">
         <div id="duka">
-            <div class="loading">Inapakia bidhaa kutoka stoo...</div>
+            <div class="loading">Inapakia bidhaa...</div>
         </div>
     </div>
 
     <footer>
         <h3 style="margin-bottom: 10px;">Wasiliana Nasi</h3>
-        <p style="color: #ccc;">Tufuate kwenye mitandao ya kijamii</p>
-        
         <div class="social-container">
-            <a href="https://wa.me/255748666409" class="social-btn">
-                <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="social-icon"> WhatsApp
-            </a>
-            <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="social-btn">
-                <img src="https://i.ibb.co/PZF184kz/instagram.png" class="social-icon"> Instagram
-            </a>
-            <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="social-btn">
-                <img src="https://i.ibb.co/nMGgVbsT/tik-tok.png" class="social-icon"> TikTok
-            </a>
-            <a href="https://x.com/Deusb17" target="_blank" class="social-btn">
-                <img src="https://i.ibb.co/FbWvjMxb/twitter.png" class="social-icon"> Twitter
-            </a>
-            <a href="https://youtube.com/@deusbentertainment?si=N23cHeGqwjABfTgc" target="_blank" class="social-btn">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="social-icon"> YouTube
-            </a>
+            <a href="https://wa.me/255748666409" class="social-btn"><img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="social-icon"> WhatsApp</a>
+            <a href="https://www.instagram.com/deusb_entertainment" target="_blank" class="social-btn"><img src="https://i.ibb.co/PZF184kz/instagram.png" class="social-icon"> Instagram</a>
+            <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="social-btn"><img src="https://i.ibb.co/nMGgVbsT/tik-tok.png" class="social-icon"> TikTok</a>
+            <a href="https://x.com/Deusb17" target="_blank" class="social-btn"><img src="https://i.ibb.co/FbWvjMxb/twitter.png" class="social-icon"> Twitter</a>
+            <a href="https://youtube.com/@deusbentertainment" target="_blank" class="social-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="social-icon"> YouTube</a>
         </div>
-
-        <p style="color: #888; font-size: 14px;">Email: deusbentertainment@gmail.com</p>
-        <p style="font-size: 12px; color: #555; margin-top: 30px;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
+        <p style="color: #888; font-size: 12px;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
     </footer>
 
     <script>
@@ -200,9 +190,7 @@
                     
                     data.forEach(bidhaa => {
                         if(bidhaa.Jina && bidhaa.Bei) {
-                            const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) 
-                                ? bidhaa.PichaURL.trim() : '';
-                            
+                            const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) ? bidhaa.PichaURL.trim() : '';
                             html += `
                                 <div class="kadi">
                                     ${pichaSahihi ? `<img src="${pichaSahihi}" loading="lazy">` : ''}
@@ -210,16 +198,14 @@
                                         <h3>${bidhaa.Jina}</h3>
                                         <span class="bei">TSH ${bidhaa.Bei}</span>
                                         <p class="maelezo">${bidhaa.Maelezo || ''}</p>
-                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari DEUSB STORE, nahitaji: ${bidhaa.Jina} kwa TSH ${bidhaa.Bei}">
-                                            <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="btn-icon-small">
-                                            Nunua
+                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari, nahitaji: ${bidhaa.Jina}">
+                                            <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="btn-icon-small"> Nunua
                                         </a>
                                     </div>
-                                </div>
-                            `;
+                                </div>`;
                         }
                     });
-                    dukaDiv.innerHTML = html || '<div class="loading">Hakuna bidhaa stoo kwa sasa.</div>';
+                    dukaDiv.innerHTML = html || '<div class="loading">Hakuna bidhaa stoo.</div>';
                 }
             });
         }
