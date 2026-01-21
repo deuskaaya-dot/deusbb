@@ -9,6 +9,9 @@
         :root {
             --whatsapp-green: #25d366;
             --insta-pink: #E1306C;
+            --youtube-red: #FF0000;
+            --tiktok-black: #010101;
+            --x-black: #000000;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
@@ -121,18 +124,28 @@
             margin-top: 50px;
         }
 
-        .footer-link { 
-            color: var(--whatsapp-green); 
-            text-decoration: none; 
-            font-weight: bold;
-            display: inline-block;
-            margin: 10px 15px;
-            font-size: 18px;
+        .social-links {
+            margin: 20px 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
         }
 
-        .insta-link {
-            color: var(--insta-pink);
+        .footer-link { 
+            text-decoration: none; 
+            font-weight: bold;
+            font-size: 16px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: 0.3s;
         }
+
+        .wa-link { color: var(--whatsapp-green); }
+        .insta-link { color: var(--insta-pink); }
+        .yt-link { color: var(--youtube-red); }
+        .tt-link { color: #ffffff; background: #000; border: 1px solid #fff; }
+        .x-link { color: #ffffff; border: 1px solid #444; }
 
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
     </style>
@@ -151,12 +164,18 @@
     </div>
 
     <footer>
-        <h3 style="margin-bottom: 20px;">Wasiliana Nasi</h3>
-        <p style="color: #ccc;">Tunapatikana kila wakati kukuhudumia kwa bidhaa bora.</p>
+        <h3 style="margin-bottom: 10px;">Wasiliana Nasi</h3>
+        <p style="color: #ccc; margin-bottom: 20px;">Tufuate kwenye mitandao ya kijamii</p>
         
-        <a href="https://wa.me/255748666409" class="footer-link">WhatsApp</a>
-        <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="footer-link insta-link">Instagram</a>
-        <a href="mailto:deusbentertainment@gmail.com" class="footer-link" style="color:#ffffff;">Email</a>
+        <div class="social-links">
+            <a href="https://wa.me/255748666409" class="footer-link wa-link">WhatsApp</a>
+            <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="footer-link insta-link">Instagram</a>
+            <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="footer-link tt-link">TikTok</a>
+            <a href="https://youtube.com/@deusbentertainment?si=N23cHeGqwjABfTgc" target="_blank" class="footer-link yt-link">YouTube</a>
+            <a href="https://x.com/Deusb17" target="_blank" class="footer-link x-link">X (Twitter)</a>
+        </div>
+
+        <a href="mailto:deusbentertainment@gmail.com" style="color:#ffffff; text-decoration: none; font-size: 14px; display: block; margin-top: 20px;">Email: deusbentertainment@gmail.com</a>
         
         <p style="font-size: 12px; color: #666; margin-top: 30px;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
     </footer>
