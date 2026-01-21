@@ -28,13 +28,7 @@
             z-index: 1000;
         }
 
-        .logo {
-            width: 80px; 
-            height: auto;
-            margin-bottom: 10px;
-        }
-
-        /* Hapa tunatengeneza muonekano wa logo kubadilika */
+        .logo { width: 80px; height: auto; margin-bottom: 10px; }
         .logo-light { display: inline-block; }
         .logo-dark { display: none; }
 
@@ -43,7 +37,6 @@
             header h1 { font-size: 32px; }
         }
 
-        /* DARK MODE DETECTION */
         @media (prefers-color-scheme: dark) {
             .logo-light { display: none; }
             .logo-dark { display: inline-block; }
@@ -51,11 +44,7 @@
 
         header h1 { margin: 0; font-size: 24px; color: #000; text-transform: uppercase; }
 
-        .container { 
-            max-width: 1200px; 
-            margin: 30px auto; 
-            padding: 0 15px; 
-        }
+        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
 
         #duka { 
             display: grid;
@@ -76,7 +65,7 @@
         }
 
         .kadi:hover { transform: translateY(-5px); }
-        .kadi img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
+        .kadi img.product-img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
         .kadi-info { padding: 0 20px; }
         .kadi-info h3 { margin: 0 0 8px 0; font-size: 18px; color: #333; }
         
@@ -105,12 +94,7 @@
             margin: 0 auto;
         }
 
-        .btn-icon-small {
-            width: 18px !important; 
-            height: 18px !important;
-            object-fit: contain;
-        }
-
+        .btn-icon-small { width: 18px !important; height: 18px !important; object-fit: contain; }
         .btn-nunua:hover { background: #128c7e; transform: scale(1.05); }
 
         footer { 
@@ -121,29 +105,8 @@
             margin-top: 50px;
         }
 
-        .social-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px;
-            margin: 25px 0;
-        }
-
-        .social-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: #2a2a2a;
-            padding: 8px 14px;
-            border-radius: 50px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-            font-size: 13px;
-            transition: 0.3s;
-            border: 1px solid #444;
-        }
-
+        .social-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 25px 0; }
+        .social-btn { display: flex; align-items: center; gap: 8px; background: #2a2a2a; padding: 8px 14px; border-radius: 50px; text-decoration: none; color: white; font-weight: bold; font-size: 13px; border: 1px solid #444; }
         .social-icon { width: 18px; height: 18px; object-fit: contain; }
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
     </style>
@@ -152,9 +115,7 @@
 
     <header>
         <img src="https://i.ibb.co/rRZvchrH/transparent-logo.png" alt="DEUSB Logo" class="logo logo-light">
-        
         <img src="https://i.ibb.co/v4rqWHrN/transparent-logo-for-black-theme-people.png" alt="DEUSB Logo" class="logo logo-dark">
-        
         <h1>DEUSB ENTERTAINMENT STORE</h1>
     </header>
 
@@ -191,14 +152,30 @@
                     data.forEach(bidhaa => {
                         if(bidhaa.Jina && bidhaa.Bei) {
                             const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) ? bidhaa.PichaURL.trim() : '';
+                            const jina = bidhaa.Jina;
+                            const bei = bidhaa.Bei;
+                            const maelezo = bidhaa.Maelezo || 'Hakuna maelezo ya ziada';
+                            
+                            // Kutengeneza ujumbe wa WhatsApp wenye format nzuri
+                            const ujumbe = encodeURIComponent(
+                                `*HABARI DEUSB STORE*\n\n` +
+                                `*Nahitaji Bidhaa Hii:*\n` +
+                                `--------------------------\n` +
+                                `📦 *Jina:* ${jina}\n` +
+                                `💰 *Bei:* TSH ${bei}\n` +
+                                `📝 *Maelezo:* ${maelezo}\n\n` +
+                                `🖼️ *Picha:* ${pichaSahihi}\n\n` +
+                                `_Ninasubiri maelekezo ya malipo._`
+                            );
+
                             html += `
                                 <div class="kadi">
-                                    ${pichaSahihi ? `<img src="${pichaSahihi}" loading="lazy">` : ''}
+                                    ${pichaSahihi ? `<img src="${pichaSahihi}" class="product-img" loading="lazy">` : ''}
                                     <div class="kadi-info">
-                                        <h3>${bidhaa.Jina}</h3>
-                                        <span class="bei">TSH ${bidhaa.Bei}</span>
-                                        <p class="maelezo">${bidhaa.Maelezo || ''}</p>
-                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari, nahitaji: ${bidhaa.Jina}">
+                                        <h3>${jina}</h3>
+                                        <span class="bei">TSH ${bei}</span>
+                                        <p class="maelezo">${maelezo}</p>
+                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=${ujumbe}">
                                             <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="btn-icon-small"> Nunua
                                         </a>
                                     </div>
