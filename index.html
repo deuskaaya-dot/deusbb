@@ -8,6 +8,7 @@
     <style>
         :root {
             --whatsapp-green: #25d366;
+            --insta-pink: #E1306C;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
@@ -28,22 +29,20 @@
             z-index: 1000;
         }
 
-        /* LOGO SETTINGS */
         .logo {
-            width: 80px; /* Ukubwa kwa ajili ya simu */
+            width: 80px; 
             height: auto;
             margin-bottom: 10px;
             transition: width 0.3s ease;
         }
 
-        /* Hapa tunaiambia kodi iongeze ukubwa wa logo kama kioo ni kikubwa (PC) */
         @media (min-width: 768px) {
             .logo {
-                width: 180px; /* Ukubwa huu utatokea kwenye PC tu */
+                width: 180px; 
                 margin-bottom: 15px;
             }
             header h1 {
-                font-size: 32px; /* Jina pia liwe kubwa kidogo kwenye PC */
+                font-size: 32px;
             }
         }
 
@@ -76,8 +75,6 @@
             width: 100%; 
             height: auto;
             display: block;
-            border: none;
-            outline: none;
         }
 
         .kadi-info { 
@@ -128,9 +125,13 @@
             color: var(--whatsapp-green); 
             text-decoration: none; 
             font-weight: bold;
-            display: block;
-            margin: 15px 0;
+            display: inline-block;
+            margin: 10px 15px;
             font-size: 18px;
+        }
+
+        .insta-link {
+            color: var(--insta-pink);
         }
 
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
@@ -152,8 +153,11 @@
     <footer>
         <h3 style="margin-bottom: 20px;">Wasiliana Nasi</h3>
         <p style="color: #ccc;">Tunapatikana kila wakati kukuhudumia kwa bidhaa bora.</p>
-        <a href="https://wa.me/255748666409" class="footer-link">WhatsApp: +255 748 666 409</a>
-        <a href="mailto:deusbentertainment@gmail.com" class="footer-link" style="color:#ffffff;">Email: deusbentertainment@gmail.com</a>
+        
+        <a href="https://wa.me/255748666409" class="footer-link">WhatsApp</a>
+        <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="footer-link insta-link">Instagram</a>
+        <a href="mailto:deusbentertainment@gmail.com" class="footer-link" style="color:#ffffff;">Email</a>
+        
         <p style="font-size: 12px; color: #666; margin-top: 30px;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
     </footer>
 
