@@ -8,7 +8,6 @@
     <style>
         :root {
             --whatsapp-green: #25d366;
-            --whatsapp-dark: #128c7e;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
@@ -41,7 +40,7 @@
             header h1 { font-size: 32px; }
         }
 
-        header h1 { margin: 0; font-size: 22px; color: #000; text-transform: uppercase; }
+        header h1 { margin: 0; font-size: 24px; color: #000; text-transform: uppercase; }
 
         .container { 
             max-width: 1200px; 
@@ -62,13 +61,17 @@
             overflow: hidden;
             transition: 0.3s;
             height: fit-content;
-            display: flex;
-            flex-direction: column;
         }
 
         .kadi:hover { transform: translateY(-5px); }
 
-        .kadi img { width: 100%; height: auto; display: block; }
+        .kadi img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            border: none;
+            outline: none;
+        }
 
         .kadi-info { padding: 20px; text-align: center; }
 
@@ -84,35 +87,30 @@
 
         .maelezo { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
 
-        /* DESIGN MPYA YA KITUFE CHA WHATSAPP */
+        /* KITUFE CHA KUNUNUA (Size ya mwanzo na Logo) */
         .btn-nunua { 
-            background: linear-gradient(135deg, var(--whatsapp-green), var(--whatsapp-dark));
+            background: var(--whatsapp-green); 
             color: white; 
+            text-align: center; 
+            padding: 12px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            padding: 14px; 
-            text-decoration: none; 
-            font-weight: bold; 
-            border-radius: 10px; 
+            gap: 8px;
             transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-            border: none;
-            cursor: pointer;
         }
 
-        .btn-nunua:hover { 
-            transform: scale(1.02);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        .btn-nunua:hover { background: #128c7e; }
+
+        .btn-icon-small {
+            width: 20px;
+            height: 20px;
         }
 
-        .btn-icon {
-            width: 22px;
-            height: 22px;
-        }
-
-        /* SOCIAL BUTTONS */
+        /* FOOTER NA SOCIAL LINKS */
         footer { 
             background: #1a1a1a; 
             padding: 50px 20px; 
@@ -125,16 +123,16 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 15px;
+            gap: 12px;
             margin: 25px 0;
         }
 
         .social-btn {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             background: #2a2a2a;
-            padding: 10px 18px;
+            padding: 10px 15px;
             border-radius: 50px;
             text-decoration: none;
             color: white;
@@ -146,7 +144,7 @@
 
         .social-btn:hover { background: #444; }
 
-        .social-icon { width: 24px; height: 24px; object-fit: contain; }
+        .social-icon { width: 20px; height: 20px; object-fit: contain; }
 
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
     </style>
@@ -172,14 +170,21 @@
             <a href="https://wa.me/255748666409" class="social-btn">
                 <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="social-icon"> WhatsApp
             </a>
+            
             <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="social-btn">
                 <img src="https://i.ibb.co/PZF184kz/instagram.png" class="social-icon"> Instagram
             </a>
+
             <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="social-btn">
                 <img src="https://i.ibb.co/nMGgVbsT/tik-tok.png" class="social-icon"> TikTok
             </a>
+
             <a href="https://x.com/Deusb17" target="_blank" class="social-btn">
                 <img src="https://i.ibb.co/FbWvjMxb/twitter.png" class="social-icon"> Twitter
+            </a>
+
+            <a href="https://youtube.com/@deusbentertainment?si=N23cHeGqwjABfTgc" target="_blank" class="social-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="social-icon"> YouTube
             </a>
         </div>
 
@@ -212,7 +217,7 @@
                                         <span class="bei">TSH ${bidhaa.Bei}</span>
                                         <p class="maelezo">${bidhaa.Maelezo || ''}</p>
                                         <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari DEUSB STORE, nahitaji: ${bidhaa.Jina} kwa TSH ${bidhaa.Bei}">
-                                            <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="btn-icon">
+                                            <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="btn-icon-small">
                                             Nunua kwa WhatsApp
                                         </a>
                                     </div>
