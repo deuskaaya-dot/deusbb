@@ -93,24 +93,23 @@
                     const dukaDiv = document.getElementById('duka');
                     let html = '';
                     
-                    data.forEach(bidhaa => {
-                        // Hakikisha bidhaa ina data muhimu kabla ya kuionyesha
-                        if(bidhaa.Jina && bidhaa.Bei) {
-                            html += `
-                                <div class="kadi">
-                                    <img src="${bidhaa.PichaURL || 'https://via.placeholder.com/300x200?text=No+Image'}" alt="${bidhaa.Jina}">
-                                    <div class="kadi-info">
-                                        <h3>${bidhaa.Jina}</h3>
-                                        <p class="bei">TSH ${bidhaa.Bei}</p>
-                                        <p class="maelezo">${bidhaa.Maelezo || 'Hakuna maelezo zaidi.'}</p>
-                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari, nahitaji bidhaa hii: ${bidhaa.Jina} (Bei: ${bidhaa.Bei})">
-                                            Nunua kwa WhatsApp
-                                        </a>
-                                    </div>
-                                </div>
-                            `;
-                        }
-                    });
+                   data.forEach(bidhaa => {
+    if(bidhaa.Jina && bidhaa.Bei) {
+        html += `
+            <div class="kadi">
+                <img src="${bidhaa.PichaURL}" alt="${bidhaa.Jina}">
+                <div class="kadi-info">
+                    <h3>${bidhaa.Jina}</h3>
+                    <p class="bei">TSH ${bidhaa.Bei}</p>
+                    <p class="maelezo">${bidhaa.Maelezo || ''}</p>
+                    <a class="btn-nunua" href="https://wa.me/WEKA_NAMBA_YAKO_HAPA?text=Habari, nahitaji ${bidhaa.Jina}">
+                        Nunua kwa WhatsApp
+                    </a>
+                </div>
+            </div>
+        `;
+    }
+});
                     dukaDiv.innerHTML = html;
                 },
                 error: function() {
