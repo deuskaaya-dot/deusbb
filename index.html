@@ -8,10 +8,6 @@
     <style>
         :root {
             --whatsapp-green: #25d366;
-            --insta-pink: #E1306C;
-            --youtube-red: #FF0000;
-            --tiktok-black: #010101;
-            --x-black: #000000;
             --card-shadow: 0 10px 20px rgba(0,0,0,0.08);
         }
 
@@ -44,9 +40,7 @@
                 width: 180px; 
                 margin-bottom: 15px;
             }
-            header h1 {
-                font-size: 32px;
-            }
+            header h1 { font-size: 32px; }
         }
 
         header h1 { margin: 0; font-size: 22px; color: #000; text-transform: uppercase; }
@@ -74,16 +68,9 @@
 
         .kadi:hover { transform: translateY(-5px); }
 
-        .kadi img { 
-            width: 100%; 
-            height: auto;
-            display: block;
-        }
+        .kadi img { width: 100%; height: auto; display: block; }
 
-        .kadi-info { 
-            padding: 20px; 
-            text-align: center; 
-        }
+        .kadi-info { padding: 20px; text-align: center; }
 
         .kadi-info h3 { margin: 0 0 10px 0; font-size: 20px; color: #333; }
         
@@ -95,12 +82,7 @@
             display: block;
         }
 
-        .maelezo { 
-            color: #666; 
-            font-size: 14px; 
-            line-height: 1.5;
-            margin-bottom: 20px;
-        }
+        .maelezo { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
 
         .btn-nunua { 
             background: var(--whatsapp-green); 
@@ -116,6 +98,7 @@
 
         .btn-nunua:hover { background: #128c7e; }
 
+        /* SOCIAL MEDIA BUTTONS DESIGN */
         footer { 
             background: #1a1a1a; 
             padding: 50px 20px; 
@@ -124,28 +107,39 @@
             margin-top: 50px;
         }
 
-        .social-links {
-            margin: 20px 0;
+        .social-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
+            margin: 25px 0;
         }
 
-        .footer-link { 
-            text-decoration: none; 
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #2a2a2a;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
             font-weight: bold;
-            font-size: 16px;
-            padding: 8px 12px;
-            border-radius: 5px;
+            font-size: 14px;
             transition: 0.3s;
+            border: 1px solid #444;
         }
 
-        .wa-link { color: var(--whatsapp-green); }
-        .insta-link { color: var(--insta-pink); }
-        .yt-link { color: var(--youtube-red); }
-        .tt-link { color: #ffffff; background: #000; border: 1px solid #fff; }
-        .x-link { color: #ffffff; border: 1px solid #444; }
+        .social-btn:hover {
+            background: #444;
+            transform: scale(1.05);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
 
         .loading { text-align: center; padding: 100px; font-size: 20px; color: #888; }
     </style>
@@ -165,19 +159,32 @@
 
     <footer>
         <h3 style="margin-bottom: 10px;">Wasiliana Nasi</h3>
-        <p style="color: #ccc; margin-bottom: 20px;">Tufuate kwenye mitandao ya kijamii</p>
+        <p style="color: #ccc;">Tufuate kwenye mitandao ya kijamii</p>
         
-        <div class="social-links">
-            <a href="https://wa.me/255748666409" class="footer-link wa-link">WhatsApp</a>
-            <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="footer-link insta-link">Instagram</a>
-            <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="footer-link tt-link">TikTok</a>
-            <a href="https://youtube.com/@deusbentertainment?si=N23cHeGqwjABfTgc" target="_blank" class="footer-link yt-link">YouTube</a>
-            <a href="https://x.com/Deusb17" target="_blank" class="footer-link x-link">X (Twitter)</a>
+        <div class="social-container">
+            <a href="https://wa.me/255748666409" class="social-btn">
+                <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="social-icon" alt="WA"> WhatsApp
+            </a>
+            
+            <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="social-btn">
+                <img src="https://i.ibb.co/PZF184kz/instagram.png" class="social-icon" alt="IG"> Instagram
+            </a>
+
+            <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="social-btn">
+                <img src="https://i.ibb.co/nMGgVbsT/tik-tok.png" class="social-icon" alt="TK"> TikTok
+            </a>
+
+            <a href="https://x.com/Deusb17" target="_blank" class="social-btn">
+                <img src="https://i.ibb.co/FbWvjMxb/twitter.png" class="social-icon" alt="X"> Twitter
+            </a>
+
+            <a href="https://youtube.com/@deusbentertainment?si=N23cHeGqwjABfTgc" target="_blank" class="social-btn">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="social-icon" alt="YT"> YouTube
+            </a>
         </div>
 
-        <a href="mailto:deusbentertainment@gmail.com" style="color:#ffffff; text-decoration: none; font-size: 14px; display: block; margin-top: 20px;">Email: deusbentertainment@gmail.com</a>
-        
-        <p style="font-size: 12px; color: #666; margin-top: 30px;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
+        <p style="color: #888; font-size: 14px;">Email: deusbentertainment@gmail.com</p>
+        <p style="font-size: 12px; color: #555; margin-top: 30px;">&copy; 2026 DEUSB STORE. Haki zote zimehifadhiwa.</p>
     </footer>
 
     <script>
@@ -195,8 +202,7 @@
                     data.forEach(bidhaa => {
                         if(bidhaa.Jina && bidhaa.Bei) {
                             const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) 
-                                ? bidhaa.PichaURL.trim() 
-                                : '';
+                                ? bidhaa.PichaURL.trim() : '';
                             
                             html += `
                                 <div class="kadi">
