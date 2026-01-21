@@ -61,6 +61,9 @@
             overflow: hidden;
             transition: 0.3s;
             height: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Inaweka kila kitu katikati */
         }
 
         .kadi:hover { transform: translateY(-5px); }
@@ -69,48 +72,51 @@
             width: 100%; 
             height: auto; 
             display: block; 
-            border: none;
-            outline: none;
         }
 
-        .kadi-info { padding: 20px; text-align: center; }
+        .kadi-info { 
+            padding: 20px; 
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Inahakikisha maandishi na kitufe vipo katikati */
+        }
 
-        .kadi-info h3 { margin: 0 0 10px 0; font-size: 20px; color: #333; }
+        .kadi-info h3 { margin: 0 0 10px 0; font-size: 19px; color: #333; }
         
         .bei { 
             color: #e67e22; 
             font-weight: bold; 
-            font-size: 22px; 
-            margin-bottom: 10px;
+            font-size: 21px; 
+            margin-bottom: 8px;
             display: block;
         }
 
-        .maelezo { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
+        .maelezo { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 15px; }
 
-        /* KITUFE CHA KUNUNUA (Size ya mwanzo na Logo) */
+        /* KITUFE KIDOGO CHA KUNUNUA (Kama Social Media Buttons) */
         .btn-nunua { 
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: var(--whatsapp-green); 
             color: white; 
-            text-align: center; 
-            padding: 12px; 
+            padding: 8px 16px; 
             text-decoration: none; 
             font-weight: bold; 
-            border-radius: 8px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
+            font-size: 14px;
+            border-radius: 50px; /* Inakifanya kiwe cha mviringo */
             transition: 0.3s;
         }
 
-        .btn-nunua:hover { background: #128c7e; }
+        .btn-nunua:hover { background: #128c7e; transform: scale(1.05); }
 
         .btn-icon-small {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
         }
 
-        /* FOOTER NA SOCIAL LINKS */
+        /* FOOTER */
         footer { 
             background: #1a1a1a; 
             padding: 50px 20px; 
@@ -170,19 +176,15 @@
             <a href="https://wa.me/255748666409" class="social-btn">
                 <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="social-icon"> WhatsApp
             </a>
-            
             <a href="https://www.instagram.com/deusb_entertainment?igsh=ajJ2aDY1MG1ycTY4" target="_blank" class="social-btn">
                 <img src="https://i.ibb.co/PZF184kz/instagram.png" class="social-icon"> Instagram
             </a>
-
             <a href="https://tiktok.com/@deusbentertainment" target="_blank" class="social-btn">
                 <img src="https://i.ibb.co/nMGgVbsT/tik-tok.png" class="social-icon"> TikTok
             </a>
-
             <a href="https://x.com/Deusb17" target="_blank" class="social-btn">
                 <img src="https://i.ibb.co/FbWvjMxb/twitter.png" class="social-icon"> Twitter
             </a>
-
             <a href="https://youtube.com/@deusbentertainment?si=N23cHeGqwjABfTgc" target="_blank" class="social-btn">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" class="social-icon"> YouTube
             </a>
@@ -218,7 +220,7 @@
                                         <p class="maelezo">${bidhaa.Maelezo || ''}</p>
                                         <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari DEUSB STORE, nahitaji: ${bidhaa.Jina} kwa TSH ${bidhaa.Bei}">
                                             <img src="https://i.ibb.co/tP3xXKN0/whatsapp.png" class="btn-icon-small">
-                                            Nunua kwa WhatsApp
+                                            Nunua
                                         </a>
                                     </div>
                                 </div>
