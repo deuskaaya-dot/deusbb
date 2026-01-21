@@ -6,29 +6,142 @@
     <title>DEUSB ENTERTAINMENT STORE</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
     <style>
-        :root { --whatsapp-green: #25d366; }
-        body { font-family: 'Inter', sans-serif; margin: 0; background-color: #f4f6f8; color: #1c1e21; }
-        header { background: #fff; padding: 25px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 15px; }
-        #duka { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .kadi { background: white; border-radius: 12px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); overflow: hidden; transition: 0.3s; }
-        .kadi img { width: 100%; height: auto; display: block; border: none; }
-        .kadi-info { padding: 20px; text-align: center; }
-        .kadi-info h3 { margin: 0 0 10px 0; font-size: 20px; }
-        .bei { color: #e67e22; font-weight: bold; font-size: 22px; margin-bottom: 10px; display: block; }
-        .maelezo { color: #666; font-size: 14px; margin-bottom: 20px; }
-        .btn-nunua { background: var(--whatsapp-green); color: white; text-align: center; padding: 12px; text-decoration: none; font-weight: bold; border-radius: 8px; display: block; }
-        footer { background: #1a1a1a; padding: 50px 20px; text-align: center; color: white; margin-top: 50px; }
-        .footer-link { color: var(--whatsapp-green); text-decoration: none; font-weight: bold; display: block; margin: 15px 0; }
+        :root {
+            --whatsapp-green: #25d366;
+            --dark-bg: #121212;
+            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        body { 
+            font-family: 'Inter', -apple-system, sans-serif; 
+            margin: 0; 
+            background-color: #f0f2f5; 
+            color: #1c1e21; 
+        }
+
+        header { 
+            background: #ffffff; 
+            padding: 20px; 
+            text-align: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 { margin: 0; font-size: 22px; letter-spacing: 1px; color: #000; }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 30px auto; 
+            padding: 0 15px; 
+        }
+
+        /* Mfumo wa box unaobadilika urefu (Masonry style) */
+        #duka { 
+            column-count: 2;
+            column-gap: 15px;
+        }
+
+        @media (min-width: 768px) { #duka { column-count: 3; } }
+        @media (min-width: 1024px) { #duka { column-count: 4; } }
+
+        .kadi { 
+            background: white; 
+            border-radius: 12px; 
+            margin-bottom: 15px; /* Nafasi kati ya kadi za juu na chini */
+            break-inside: avoid; /* Inazuia kadi isikatike katikati */
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .kadi:hover { transform: scale(1.02); }
+
+        /* Picha inakaa juu kabisa bila maandishi yoyote juu yake */
+        .kadi img { 
+            width: 100%; 
+            display: block; 
+            height: auto; /* Inafuata urefu halisi wa picha */
+            background: #eee;
+        }
+
+        .kadi-info { 
+            padding: 15px; 
+            text-align: left; 
+        }
+
+        .kadi-info h3 { margin: 0 0 8px 0; font-size: 18px; color: #1c1e21; }
+        
+        .bei { 
+            color: #e67e22; 
+            font-weight: bold; 
+            font-size: 19px; 
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .maelezo { 
+            color: #65676b; 
+            font-size: 13px; 
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .btn-nunua { 
+            background: var(--whatsapp-green); 
+            color: white; 
+            text-align: center; 
+            padding: 10px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            display: block;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn-nunua:hover { background: #128c7e; }
+
+        footer { 
+            background: #ffffff; 
+            padding: 40px 20px; 
+            text-align: center; 
+            border-top: 1px solid #ddd;
+            margin-top: 50px;
+        }
+
+        .footer-link { 
+            color: var(--whatsapp-green); 
+            text-decoration: none; 
+            font-weight: 600;
+            display: block;
+            margin: 10px 0;
+        }
+
+        .loading { text-align: center; padding: 50px; color: #888; }
     </style>
 </head>
 <body>
-    <header><h1>DEUSB ENTERTAINMENT STORE</h1></header>
-    <div class="container"><div id="duka"></div></div>
+
+    <header>
+        <h1>DEUSB ENTERTAINMENT STORE</h1>
+    </header>
+
+    <div class="container">
+        <div id="duka">
+            <div class="loading">Inapakia bidhaa...</div>
+        </div>
+    </div>
+
     <footer>
         <h3>Wasiliana Nasi</h3>
+        <p>Tunapokea oda na kutoa huduma saa 24.</p>
         <a href="https://wa.me/255748666409" class="footer-link">WhatsApp: +255 748 666 409</a>
-        <a href="mailto:deusbentertainment@gmail.com" class="footer-link" style="color:#fff;">Email: deusbentertainment@gmail.com</a>
+        <a href="mailto:deusbentertainment@gmail.com" class="footer-link" style="color:#444;">Email: deusbentertainment@gmail.com</a>
+        <p style="font-size: 12px; color: #999; margin-top: 20px;">&copy; 2026 DEUSB STORE.</p>
     </footer>
 
     <script>
@@ -39,23 +152,33 @@
                 download: true,
                 header: true,
                 complete: function(results) {
+                    const data = results.data;
                     const dukaDiv = document.getElementById('duka');
                     let html = '';
-                    results.data.forEach(bidhaa => {
+                    
+                    data.forEach(bidhaa => {
                         if(bidhaa.Jina && bidhaa.Bei) {
-                            const pichaSahihi = bidhaa.PichaURL ? bidhaa.PichaURL.trim() : '';
-                            html += `<div class="kadi">
-                                ${pichaSahihi ? `<img src="${pichaSahihi}">` : ''}
-                                <div class="kadi-info">
-                                    <h3>${bidhaa.Jina}</h3>
-                                    <span class="bei">TSH ${bidhaa.Bei}</span>
-                                    <p class="maelezo">${bidhaa.Maelezo || ''}</p>
-                                    <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari, nahitaji ${bidhaa.Jina}">Nunua kwa WhatsApp</a>
+                            // Link ya picha (Direct link)
+                            const pichaSahihi = (bidhaa.PichaURL && bidhaa.PichaURL.includes('http')) 
+                                ? bidhaa.PichaURL 
+                                : 'https://via.placeholder.com/400x500?text=Picha+Inapakia';
+                            
+                            html += `
+                                <div class="kadi">
+                                    <img src="${pichaSahihi.trim()}" alt="${bidhaa.Jina}">
+                                    <div class="kadi-info">
+                                        <h3>${bidhaa.Jina}</h3>
+                                        <span class="bei">TSH ${bidhaa.Bei}</span>
+                                        <p class="maelezo">${bidhaa.Maelezo || ''}</p>
+                                        <a class="btn-nunua" href="https://wa.me/255748666409?text=Habari, nahitaji bidhaa hii: ${bidhaa.Jina} kwa TSH ${bidhaa.Bei}">
+                                            Nunua kwa WhatsApp
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>`;
+                            `;
                         }
                     });
-                    dukaDiv.innerHTML = html;
+                    dukaDiv.innerHTML = html || '<p>Hakuna bidhaa stoo kwa sasa.</p>';
                 }
             });
         }
